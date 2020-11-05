@@ -16,6 +16,22 @@ class Gestor_Particulas:
             str(particula) + '\n' for particula in self.__particulas
         )
 
+    def __len__(self):
+        return len(self.__particulas)
+    
+    def __iter__(self):
+        self.cont = 0
+        return self
+    
+    def __next__(self):
+        if self.cont < len(self.__particulas):
+            particula = self.__particulas[self.cont]
+            self.cont += 1
+            return particula
+        else:
+            raise StopIteration
+
+
     def guardar(self, ubicacion):
         try:
             with open(ubicacion, 'w') as archivo:
@@ -33,7 +49,8 @@ class Gestor_Particulas:
             return 1
         except:
             return 0
-            
+    
+
 #p01 = Particula(12345, 0, 0, 120, 240, 35, 190, 150, 160)
 #p02 = Particula(12444, 12, 23, 15, 16, 9, 234, 34, 54)
 

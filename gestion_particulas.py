@@ -51,10 +51,10 @@ class Gestor_Particulas:
             return 0
 
     def orden_por_id(self):
-        self.__particulas.sort(key=lambda Particula: Particula.id)
+        self.__particulas.sort(key=lambda Particula: int(Particula.id))
     
     def orden_por_velocidad(self):
-        self.__particulas.sort(key=lambda Particula: Particula.velocidad, reverse=True)
+        self.__particulas.sort(key=lambda Particula: int(Particula.velocidad), reverse=True)
     
     def orden_por_distancia(self):
         self.__particulas.sort(key=lambda Particula: Particula.distancia)

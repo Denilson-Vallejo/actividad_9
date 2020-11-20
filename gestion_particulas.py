@@ -49,6 +49,15 @@ class Gestor_Particulas:
             return 1
         except:
             return 0
+
+    def orden_por_id(self):
+        self.__particulas.sort(key=lambda Particula: Particula.id)
+    
+    def orden_por_velocidad(self):
+        self.__particulas.sort(key=lambda Particula: Particula.velocidad, reverse=True)
+    
+    def orden_por_distancia(self):
+        self.__particulas.sort(key=lambda Particula: Particula.distancia)
     
 
 #p01 = Particula(12345, 0, 0, 120, 240, 35, 190, 150, 160)
